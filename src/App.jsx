@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       {/* wrapper div */}
-      <div className='relative wrapper min-h-screen bg-white dark:bg-[#1A1A1A]'>
+      <div className='relative wrapper min-h-screen bg-white dark:bg-[#1A1A1A] transition-colors duration-300'>
         <Discount />
 
         {isOpen == true ?
