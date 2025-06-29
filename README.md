@@ -33,14 +33,5 @@ Una aplicación personal desarrollada para practicar React, Tailwind CSS, manejo
 - **Vista previa pública (public folder):** 
 ![Vista previa del proyecto](./public/preview/capture_1.png)
 ![Vista previa del proyecto](./public/preview/capture_2.png)
-- **Link en vivo (Netlify):** _[AQUÍ VA EL LINK]_  
+- **Live Link (Netlify):** [View project on Netlify](https://celadon-mooncake-66b847.netlify.app/)
 
----
-
-## Instalación y ejecución local
-
-```bash
-git clone https://tu-repo.git
-cd tu-repo
-npm install
-npm run dev
