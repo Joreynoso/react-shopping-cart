@@ -7,10 +7,14 @@ import { useContext } from 'react'
 
 export default function ProductList() {
 
-    const { addTocart } = useContext(CartContext)
+    const { cart, addTocart } = useContext(CartContext)
 
     const productListMapped = products.map((item, index) => {
         const tag = index < 2 ? 'NEW' : null;
+
+        // --> search product in cart to chek if exist prop quantity
+        const productInCart = cart.find(p => p.id === item.id)
+        const quantity = productInCart ? productInCart.quantity : 0
 
         return (
             <ProductItem
@@ -20,6 +24,7 @@ export default function ProductList() {
                 url={item.url}
                 tag={tag}
                 handleClick={() => addTocart(item)}
+                quantity={quantity}
             />
         )
     })

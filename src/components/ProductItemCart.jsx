@@ -36,7 +36,7 @@ export default function ProductItemCart({ name, price, url, id, quantity }) {
                 <div className="flex items-center gap-3 mt-2">
                     <button
                         onClick={() => decreaseQuantity(id)}
-                        disabled={quantity <= 1}
+                        // disabled={quantity <= 1}
                         className="cursor-pointer p-1 px-2 text-sm bg-neutral-200 dark:bg-[#2F2F2F] text-black border border-stone-300 dark:border-stone-700 dark:text-white/70 hover:bg-[#8B8C8D] dark:hover:bg-stone-500">
                         −
                     </button>

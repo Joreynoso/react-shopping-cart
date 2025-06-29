@@ -55,9 +55,12 @@ export default function Navbar({ setIsOpen }) {
                 {cartIcon}
 
                 {/* --> show only if are more than one product in cart */}
-                <div className='absolute top-0 right-0 bg-neutral-900 h-5 w-5 rounded-full flex justify-center items-center '>
+                {totalProducts > 0 ? 
+                <div className='absolute top-0 right-0 bg-neutral-900 dark:bg-[#C62828] h-5 w-5 rounded-full flex justify-center items-center '>
                     <p className='text-white text-sm'>{totalProducts}</p>
-                </div>
+                </div> : 
+                null}
+
             </button>
         </nav>
     )

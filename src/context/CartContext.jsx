@@ -9,37 +9,21 @@ export default function CartProvider({ children }) {
         return saveCart ? JSON.parse(saveCart) : [] // --> if saveCart exist...
     })
 
-    // --> handle message
-    const [message, setMessage] = useState(null)
-
-    // --> handleMessageShow
-    function handleCloseMessage() {
-        setMessage(null)
-    }
-
-    // --> messageShown // by dafault 'product added to cart'
-    function handleShownMessage(text = 'Product added to cart.') {
-        setMessage(text)
-
-        setTimeout(() => {
-            setMessage(null)
-        },8000);
-    }
-
-    // --> add to cart function
+    // --> add to cart || update quantity
     function addTocart(product) {
         setCart(prevCart => {
             const exists = prevCart.find(item => item.id === product.id)
 
             if (exists) {
-                // --> true side
-                handleShownMessage("Product is already in your cart.");
-                return prevCart;
+                // Si ya existe, mapeamos el carrito para actualizar solo la cantidad del producto
+                return prevCart.map(item =>
+                    item.id === product.id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                )
             } else {
-                // --> false side
-                const newProduct = { ...product, quantity: 1 };
-                handleShownMessage("Product added to cart.");
-                return [...prevCart, newProduct];
+                // Si no existe, agregamos el producto con cantidad 1
+                return [...prevCart, { ...product, quantity: 1 }]
             }
         })
     }
@@ -49,28 +33,28 @@ export default function CartProvider({ children }) {
         setCart(prevCart => prevCart.filter(item => item.id !== id))
     }
 
-    // --> update quantity
+    // --> increase quantity
     function increaseQuantity(id) {
         setCart(prevCart =>
-            prevCart.map((product) =>
-                product.id === id ? {
-                    ...product, quantity: product.quantity + 1
-                } :
-                    product
+            prevCart.map(product =>
+                product.id === id
+                    ? { ...product, quantity: product.quantity + 1 }
+                    : product
             )
         )
     }
 
-    // --> update quantity
+    // --> decrease quantity
     function decreaseQuantity(id) {
-        setCart(prevCart =>
-            prevCart.map((product) =>
-                product.id === id && product.quantity > 1 ? {
-                    ...product, quantity: product.quantity - 1
-                } :
+        setCart(prevCart => {
+            const updateCart = prevCart.map(product =>
+                (product.id === id && product.quantity > 0)
+                    ? { ...product, quantity: product.quantity - 1 } :
                     product
             )
-        )
+
+            return updateCart.filter(product => product.quantity > 0)
+        })
     }
 
     // --> remove al products
@@ -86,7 +70,7 @@ export default function CartProvider({ children }) {
     // --> calt items cart quantity
     const totalProducts = cart.reduce((acc, item) => {
         return acc + item.quantity
-    }, 0);
+    }, 0)
 
     // --> save cart to localStorage
     useEffect(() => {
@@ -105,9 +89,6 @@ export default function CartProvider({ children }) {
                 totalPrice,
                 totalProducts,
                 cleanCart,
-                message,
-                handleCloseMessage,
-                handleShownMessage
             }}>
 
             {children}

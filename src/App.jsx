@@ -7,7 +7,6 @@ import Navbar from './components/Navbar.jsx'
 import Discount from './components/Discount.jsx'
 import ProductList from './components/ProductList.jsx'
 import Cart from './components/Cart.jsx'
-import MessageBox from './components/MessageBox.jsx'
 
 function App() {
 
@@ -24,8 +23,6 @@ function App() {
           <Cart setIsOpen={setIsOpen} /> : null}
 
         <Navbar setIsOpen={setIsOpen} />
-        <MessageBox />
-
         <ProductList />
         <Footer />
 

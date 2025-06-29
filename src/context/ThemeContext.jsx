@@ -11,13 +11,13 @@ export default function ThemeProvider({ children }) {
 
     // --> toggle theme
     const toggleTheme = () => {
-        console.log('theme status theme', theme)
+        console.log('current theme', theme)
         settheme(prev => prev === 'dark' ? 'ligth' : 'dark')
     }
 
     // --> interact with HTML to change htlm tag
     useEffect(() => {
-        const root = document.documentElement //
+        const root = document.documentElement 
         if (theme === 'dark') {
             root.classList.add("dark")
         } else {
