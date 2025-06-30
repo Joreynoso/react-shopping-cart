@@ -39,7 +39,7 @@ export default function Navbar({ setIsOpen }) {
                 onClick={toggleTheme}
                 className='cursor-pointer'>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 dark:text-stone-300">
-                    {theme ? sunIcon : moonIcon}
+                    {theme === 'dark' ? sunIcon : moonIcon}
                 </svg>
             </button>
 
@@ -55,11 +55,11 @@ export default function Navbar({ setIsOpen }) {
                 {cartIcon}
 
                 {/* --> show only if are more than one product in cart */}
-                {totalProducts > 0 ? 
-                <div className='absolute top-0 right-0 bg-neutral-900 dark:bg-[#C62828] h-5 w-5 rounded-full flex justify-center items-center '>
-                    <p className='text-white text-sm'>{totalProducts}</p>
-                </div> : 
-                null}
+                {totalProducts > 0 ?
+                    <div className='absolute top-0 right-0 bg-neutral-900 dark:bg-[#C62828] h-5 w-5 rounded-full flex justify-center items-center '>
+                        <p className='text-white text-sm'>{totalProducts}</p>
+                    </div> :
+                    null}
 
             </button>
         </nav>
