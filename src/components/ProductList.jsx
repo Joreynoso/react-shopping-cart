@@ -32,7 +32,7 @@ export default function ProductList() {
     return (
         <>
             {/* ---> product list */}
-            <section className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 px-4 py-10'>
+            <section className='w-full grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 px-4 py-10'>
                 {productListMapped}
             </section>
         </>

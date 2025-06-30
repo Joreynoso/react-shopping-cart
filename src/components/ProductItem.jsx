@@ -12,16 +12,15 @@ export default function ProductItem({ name, price, url, handleClick, tag, quanti
             className='
                 product-item relative text-center
                 transition-transform duration-300 ease-in-out
-                bg-white dark:bg-[#1A1A1A] p-2
+                bg-white dark:bg-[#1A1A1A]
             '
         >
-            {/* Contenedor con posición relativa */}
+            {/* button float */}
             <div className="relative">
-                {/* Botón flotante con posición absoluta */}
                 <button
                     onClick={handleClick}
                     className="
-                    absolute top-5 right-5 z-20 h-10 w-10 rounded-full bg-[#1A1A1A]
+                    absolute top-3 right-3 z-20 h-10 w-10 rounded-full bg-[#1A1A1A]
                     flex justify-center items-center tenor-sans p-2 text-white cursor-pointer
                     hover:bg-[#C62828] transition-colors duration-200
                 "
@@ -31,7 +30,7 @@ export default function ProductItem({ name, price, url, handleClick, tag, quanti
 
                 {/* Badge solo si hay productos */}
                 {quantity > 0 ? (
-                    <div className="absolute top-3 right-3 h-5 min-w-[20px] px-1 bg-red-600 rounded-full flex items-center justify-center z-30">
+                    <div className="absolute top-2 right-2 h-5 min-w-[20px] px-1 bg-red-600 rounded-full flex items-center justify-center z-30">
                         <span className="text-white text-xs font-bold leading-none">{quantity}</span>
                     </div>
                 ) : null}
