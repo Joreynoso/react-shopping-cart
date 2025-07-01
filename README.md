@@ -11,7 +11,6 @@ Una aplicación personal desarrollada para practicar React, Tailwind CSS, manejo
 - 🔄 useState, useEffect y Context — Para manejo de estado local y global, efectos secundarios y comunicación entre componentes.  
 - 💾 localStorage — Para persistir el estado del carrito y la preferencia de tema entre recargas.  
 - 🧩 Componentes reutilizables — Organización modular y escalable del código.  
-- 🎞 framer-motion — Para animaciones suaves y feedback visual.  
 
 ---
 

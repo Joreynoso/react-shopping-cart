@@ -7,7 +7,7 @@ import { useContext } from "react"
 
 export default function Cart({ setIsOpen }) {
     // --> use context
-    const { cart, totalPrice, cleanCart } = useContext(CartContext)
+    const { cart, totalPrice, totalProducts, cleanCart, calcDiscount } = useContext(CartContext)
 
     // --> handle close cart
     function handleCloseCart() {
@@ -66,6 +66,12 @@ export default function Cart({ setIsOpen }) {
                     <span className="tenor-sans uppercase">Subtotal</span>
                     <span className="tenor-sans">${totalPrice}</span>
                 </div>
+
+                <div className="flex justify-between text-sm dark:text-white">
+                    <span className="tenor-sans uppercase">Descuento</span>
+                    <span className="tenor-sans">{ totalProducts > 3 ? calcDiscount() : 'NONE'}</span>
+                </div>
+
                 <div className="flex justify-between text-sm dark:text-white">
                     <span className="tenor-sans uppercase">Total</span>
                     <span className="tenor-sans">${totalPrice}</span>

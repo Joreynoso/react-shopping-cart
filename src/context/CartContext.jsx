@@ -67,16 +67,22 @@ export default function CartProvider({ children }) {
         return acc + product.price * product.quantity
     }, 0)
 
-    // --> calt items cart quantity
+    // --> calc items cart quantity
     const totalProducts = cart.reduce((acc, item) => {
         return acc + item.quantity
     }, 0)
 
     // --> save cart to localStorage
     useEffect(() => {
+        console.log('use cart effect running...')
         localStorage.setItem('cart', JSON.stringify(cart))
     }, [cart])
 
+    // --> calc discount
+    function calcDiscount() {
+        console.log('discount applies!')
+        return "10% OFF"
+    }
 
     return (
         <CartContext.Provider
@@ -89,6 +95,7 @@ export default function CartProvider({ children }) {
                 totalPrice,
                 totalProducts,
                 cleanCart,
+                calcDiscount
             }}>
 
             {children}
