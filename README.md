@@ -32,5 +32,5 @@ Una aplicación personal desarrollada para practicar React, Tailwind CSS, manejo
 - **Vista previa pública (public folder):** 
 ![Vista previa del proyecto](./public/preview/capture_1.png)
 ![Vista previa del proyecto](./public/preview/capture_2.png)
-- **Live Link (Netlify):** [View project on Netlify](https://celadon-mooncake-66b847.netlify.app/)
+- **Live Link (Netlify):** [View project on Netlify](https://whimsical-salmiakki-e40f05.netlify.app/)
 
